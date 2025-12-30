@@ -1,5 +1,20 @@
-1.const用法
-普通变量：const int a $\rightarrow$ 锁死数值。
-指针：const int* (锁数据，指针可变) vs int* const (锁指针，数据可变)。
-引用（最重要）：const Type& $\rightarrow$ 高效传参的标准写法（只读、不拷贝）。
-成员函数：void func() const $\rightarrow$ 承诺函数内部不改动对象状态。
+
+
+------
+
+### C++ `const` 用法核心总结
+
+- **普通变量**
+  - `const int a` $\rightarrow$ **锁死数值**（初始化后不可再赋值）。
+- **指针**
+  - `const int*` $\rightarrow$ **锁数据**（指针指向的地址可变，但不能通过该指针修改数据）。
+  - `int* const` $\rightarrow$ **锁指针**（指针锁死在一个地址，但可以通过该指针修改数据）。
+- **引用（✨最重要）**
+  - `const Type&` $\rightarrow$ **高效传参的标准写法**（既避免了拷贝开销，又保证了只读安全）。
+- **成员函数**
+  - `void func() const` $\rightarrow$ **类对象承诺**（承诺该函数内部绝对不会修改对象的任何成员变量）。
+
+
+
+2.无符号数据类型和有符号数据类型进行运算的时候，有符号数据类型会直接转换成无符号类型。
+
